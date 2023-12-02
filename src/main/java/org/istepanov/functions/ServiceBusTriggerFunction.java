@@ -32,7 +32,7 @@ public class ServiceBusTriggerFunction {
                     queueName = "is-petstoreapp-orders-queue",
                     connection = "connectionString")
             String message, final ExecutionContext context
-    ) throws URISyntaxException, StorageException, InvalidKeyException, IOException {
+    ) throws URISyntaxException, InvalidKeyException, IOException {
         context.getLogger().info("Java ServiceBus trigger processing a request.");
 
 
@@ -58,7 +58,6 @@ public class ServiceBusTriggerFunction {
                 uploadOrder(message, blobClient, orderId);
             } catch (StorageException | IOException e) {
                 context.getLogger().info("Failed to upload order to storage, will try again");
-//
                 throw new RuntimeException("failed to save");
             }
         }
