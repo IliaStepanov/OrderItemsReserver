@@ -12,7 +12,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: ISorderItemsReserver # set this to your function app name on Azure
   PACKAGE_DIRECTORY: '.' # set this to the directory which contains pom.xml file
-  JAVA_VERSION: '8' # set this to the java version to use
+  JAVA_VERSION: '17' # set this to the java version to use
 
 jobs:
   build-and-deploy:
@@ -38,6 +38,6 @@ jobs:
         with:
           app-name: 'ISorderItemsReserver'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_967019DB7620476CA7262B8D88A0C0C4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F0AB721D80B4FC0AE8180E194029076 }}
           package: '${{ env.PACKAGE_DIRECTORY }}'
           respect-pom-xml: true
